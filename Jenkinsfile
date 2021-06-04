@@ -11,6 +11,10 @@ node {
 		sh "curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash"
 	}
 	
+	stage('Nvm1') {
+		sh "export NVM_DIR=\"$HOME/.nvm\""
+	}
+	
 	
 		
 	stage('Test') {
