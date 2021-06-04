@@ -15,6 +15,7 @@ node {
 			[ -s "$NVM_DIR/bash_completion" ] && \\. "$NVM_DIR/bash_completion"
 			nvm install 14.15
 			nvm use 14.15
+			nvm alias default 14.15
 		'''
 	}	
 
