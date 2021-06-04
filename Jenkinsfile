@@ -21,8 +21,12 @@ node {
 
 
 	stage('Test and build') {
-		sh '''npm run test --watch=false
-		npm run build --prod
+		sh '''
+			nvm use 14.15
+			nvm alias default 14.15
+			nvm version
+			npm run test --watch=false
+			npm run build --prod
 		'''
 	}
 		
