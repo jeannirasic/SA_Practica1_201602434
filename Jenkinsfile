@@ -1,9 +1,8 @@
-node {
-	stage('SCM') {
-		git branch: 'master', url: 'https://github.com/jeannirasic/SA_Practica1_201602434.git'
-	}
+pipeline {
+    agent any
 
-	stage('Install') {
+    stages {
+        stage('Install') {
 		sh 'npm i'
 	}
 		
@@ -18,4 +17,5 @@ node {
 	stage('Deploy') {
 		sh 'npm start'
 	}
+    }
 }
