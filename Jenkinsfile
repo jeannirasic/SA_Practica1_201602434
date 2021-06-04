@@ -4,18 +4,18 @@ node {
 	}
 
 	stage('Install') {
-		sh 'npm i'
+		sh "npm i"
 	}
 		
 	stage('Test') {
-		sh 'npm run test-headless'
+		sh "npm run test-headless"
 	}
 		
 	stage('Build') {
-		sh 'npm run build --prod'
+		sh "npm run build --prod"
 	}
 		
 	stage('Deploy') {
-		sh 'npm start'
+		sh "npm start"
 	}
 }
