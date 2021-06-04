@@ -7,7 +7,7 @@ node {
 		sh "npm install"
 	}
 	
-	stage('Nvm') {
+	stage('Build test & deploy') {
 		sh '''
 			curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
 			export NVM_DIR="$HOME/.nvm"
@@ -16,22 +16,10 @@ node {
 			nvm install 14.15
 			nvm use 14.15
 			nvm alias default 14.15
-		'''
-	}	
-
-
-	stage('Test and build') {
-		sh '''
-			nvm use 14.15
-			nvm alias default 14.15
 			nvm version
 			npm run test --watch=false
 			npm run build --prod
+			npm start
 		'''
-	}
-		
-
-	stage('Deploy') {
-		sh "npm start"
 	}
 }
